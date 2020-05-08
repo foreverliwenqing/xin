@@ -1,0 +1,29 @@
+ion-header{
+    ion-toolbar{
+        --border-color: rgb(244,244,244);
+        --background: rgb(244,244,244);
+        ion-title{
+            font-weight: 500;
+        }
+    }
+}
+
+ion-content{
+    --background: rgb(244,244,244);
+    ion-card{
+        padding: 1rem 0;
+    }
+    ion-item{
+        font-size: 1.4rem;
+        color: #555;
+        .vdata{
+            text-align: right;
+        }
+        ion-icon{
+            color: #ccc;
+        }
+    }
+    .logout{
+        margin: 1rem;
+    }
+}

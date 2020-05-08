@@ -1,0 +1,47 @@
+ion-toolbar {
+  --background: rgb(244, 244, 244);
+  --border-color: rgb(244, 244, 244);
+}
+ion-content {
+  --background: rgb(244, 244, 244);
+}
+ion-card{
+    margin: 1rem;
+    ion-list{
+        padding: 0 1rem;
+        ion-label{
+            width: 6rem;
+        }
+        ion-item{
+            font-size: 1.4rem;
+            color: #555;
+            --border-color: #eee;
+            --padding-start: 0;
+            .genderchose{
+                height: 99%;
+                padding: 0;
+                ion-item{
+                    width: 9.9rem;
+                    float: left;
+                }
+            }
+        }
+    }
+}
+#savedece{
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+.decedel{
+    display: flex;
+    padding: 1rem;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    
+    ion-button{
+      flex: 1;
+    }
+  }

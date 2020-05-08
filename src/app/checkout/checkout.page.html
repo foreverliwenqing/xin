@@ -1,0 +1,144 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" class="searchpaddingtop">
+      <ion-button (tap)="goBack()">
+        <ion-icon name="chevron-back-outline" size="large"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>Check out</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!-- 收货管理 -->
+    <!--收货地址为空时显示-->
+  <div class="deliverycontent" *ngIf="showAddReceBtn">
+    <div class="delivery" [routerLink]="['/recelist']">
+      <ion-icon name="add-outline"></ion-icon>
+      <p class="deliverytip">Add address</p>
+    </div>
+  </div>
+    <!--end-->
+
+  <ion-card>
+    <div id="addresscontent" [routerLink]="['/recelist']" *ngIf="!showAddReceBtn">
+      <div class="locationicon">
+        <ion-icon slot="start" name="location-outline"></ion-icon>
+      </div>
+
+      <div class="addressset">
+        <div class="addressel">
+          {{ choseRece.address }}
+        </div>
+        <div class="delicontact">
+          <ion-badge *ngIf="choseRece.default_address">default address</ion-badge>
+          {{ choseRece.phone }} {{ choseRece.name }}
+        </div>
+      </div>
+
+    </div>
+  </ion-card>
+  <!-- 收货管理结束 -->
+
+  <!--商品信息-->
+  <ion-card>
+    <ion-list id="prolist">
+
+      <ion-item lines="none" *ngFor="let v of buyList">
+        <ion-label>
+          <div class="proimg">
+            <img [src]="domain + v.pro_pic" />
+          </div>
+          <div class="prodetail">
+            <div class="prodata">
+              <div class="protitle">{{ v.pro_title }}</div>
+              <div class="pronum">x{{ v.pro_count }}</div>
+              <div class="proprice">￥{{ v.pro_price }}</div>
+            </div>
+            <div class="proattr">
+              {{ v.pro_attrs }}
+            </div>
+          </div>
+        </ion-label>
+      </ion-item>
+
+      <ion-item lines="full">
+        <ion-label id="discontent">
+          <div>
+            <div class="disfee">Shipping Fee</div>
+            <div class="disprice">Free</div>
+          </div>
+        </ion-label>
+      </ion-item>
+      
+    </ion-list>
+    <div class="prosum">Total <span>￥{{ buySum }}</span></div>
+  </ion-card>
+  <!--商品信息结束-->
+
+  <!--支付方式-->
+  <ion-card>
+    <div class="paytype" (click)="checkPayType()">
+      <div class="paytitle">
+        payment method
+      </div>
+      <div class="paylist">
+        <div class="payicon">
+          <ion-icon name="card-outline" color="secondary"></ion-icon>
+        </div>
+        <div class="paytitle">
+          <span>Cash on delivery</span>
+        </div>
+        <div class="paygo">
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </div>
+      </div>
+    </div>
+
+    <div class="clearfix"></div>
+  </ion-card>
+  
+  <!--支付方式结束-->
+
+  <!--备注-->
+  <ion-card>
+    <div (click)="openRemark()" id="remarkcontent">
+      <div class="remarktitle">Note</div>
+      <div class="remarktext">
+        <span>{{ remarks }}</span>
+      </div>
+      <div class="remarkicon">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+  </ion-card>
+  <!--备注结束-->
+
+  <!--底部信息-->
+  <div id="checkfooter">
+    <div id="gologin" *ngIf="!isLogin">
+      <ion-button shape="round" color="secondary" size="small" [routerLink]="['/login']" [queryParams]="{returnUrl: '/checkout'}">
+        Register/Login
+      </ion-button>
+  
+      <p>
+        Note: save your order and delivery address
+      </p>
+    </div>
+
+    <div class="checkprice">
+      Total
+      <span>￥{{ buySum.toFixed(2) }}</span>
+    </div>
+    <div class="checkbtn">
+      <ion-button shape="round" size="small" slot="end" color="danger" (click)="doCheckout()">
+        Confirm 
+      </ion-button>
+    </div>
+  </div>
+  <!--底部信息结束-->
+
+</ion-content>

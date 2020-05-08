@@ -1,0 +1,57 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+
+    <ion-buttons slot="start" class="head-fix-icon">
+      <ion-button>
+        <ion-icon slot="icon-only" name="qr-code-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-searchbar placeholder="please enter" animated inputmode="decimal" type="decimal" [debounce]="250" padding class="head-fix" (tap)="goSearch()"></ion-searchbar>
+
+    <ion-buttons slot="end" class="head-fix-icon anchat">
+      <ion-button>
+        <ion-icon slot="icon-only" name="chatbubble-outline"></ion-icon>
+      </ion-button>
+
+      <ion-badge color="danger" class="chattip">50</ion-badge>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="category">
+
+    <div class="cateSimpList">
+      <ion-list>
+        <ion-item lines="full" *ngFor="let v of categoryList;let k = index" (tap)="changeCate(v._id, k)">
+          <ion-label>{{ v.title }}</ion-label>
+        </ion-item>
+
+        <ion-item lines="full" class="cursor" [ngStyle]="{top: topPx}"></ion-item>
+      </ion-list>
+    </div>
+
+    <div class="cateDetailList">
+      
+      <ion-card class="catecard">
+        <ion-list>
+          <ion-item *ngFor="let vv of categoryList2" [routerLink]="['/productlist']" [queryParams]="{cid : vv._id}">
+            <ion-img [src]="domain + vv.pic"></ion-img>
+            <ion-label>
+              <div class="catetitle">{{ vv.title }}</div>
+              <div class="catedesc"></div>
+              <div class="cateattr"></div>
+              <div class="cateprice"></div>
+            </ion-label>
+          </ion-item>
+          
+        </ion-list>
+      </ion-card>
+
+    </div>
+
+
+  </div>
+</ion-content>

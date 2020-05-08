@@ -1,0 +1,41 @@
+ion-header{
+    --background: #eee;
+    ion-toolbar{
+        --border-color: #eee;
+        --background: #eee;
+    }
+}
+ion-content{
+    --background: #eee;
+}
+.passwordset{
+    padding: 1rem;
+    .setcontent{
+        ion-input{
+            --padding-start: 1rem;
+            font-size: 1.6rem;
+            height: 6rem;
+        }
+    }
+    .showpass{
+        padding: 1rem;
+        ion-label{
+            padding-left: 1rem;
+            position: relative;
+            bottom: 0.6rem;
+        }
+    }
+    p{
+        font-size: 1.4rem;
+        color: #555;
+        padding: 0 1.2rem;
+    }
+    ion-button{
+        margin-top: 3rem;
+    }
+    .passwordset{
+        ion-checkbox{
+            
+        }
+    }
+}

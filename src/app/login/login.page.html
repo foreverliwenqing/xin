@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>Log in</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="welcomemsg">
+    <div id="welcomecontent">
+      <ion-avatar>
+        <img src="assets/img/face.png" />
+      </ion-avatar>
+      <p>Welcome</p>
+    </div>
+  </div>
+  
+  <div class="logincontent">
+    <ion-card>
+      <ion-list>
+        <ion-item>
+          <ion-input type="text" placeholder="Name/Phone Number" [(ngModel)]="userInfo.username"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="password" placeholder="Password" [(ngModel)]="userInfo.password"></ion-input>
+        </ion-item>
+      </ion-list>
+    </ion-card>
+
+    <div class="userset">
+      <ion-label class="sleft">Forget password</ion-label>
+      <ion-label class="sright" [routerLink]="['/register1']">Registration</ion-label>
+    </div>
+
+    <div class="loginbtn">
+      <ion-button (click)="doLogin()" expand="block" shape="round">
+        Comfirm
+      </ion-button>
+    </div>
+    
+  </div>
+
+
+</ion-content>

@@ -1,0 +1,37 @@
+<ion-header>
+  
+
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>设置登录密码</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="passwordset">
+    <ion-card>
+      <div class="setcontent">
+        <ion-input [type]="itype" placeholder="设置密码" [(ngModel)]="readPass"></ion-input>
+        <ion-input [type]="itype" placeholder="再次确认密码" [(ngModel)]="repPass"></ion-input>
+      </div>
+
+      <div class="showpass">
+        <ion-checkbox (click)="ischeck()"></ion-checkbox>
+        <ion-label>显示密码</ion-label>
+      </div>
+    </ion-card>
+  
+    <p>密码由6-20位字母、数字、特殊符号组成，注意大小写</p>
+
+    <ion-button (click)="doRegister()" expand="block" shape="round">
+      完成
+    </ion-button>
+  </div>
+  
+</ion-content>

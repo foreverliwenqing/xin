@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" class="searchpaddingtop">
+      <ion-button (tap)="goBack()">
+        <ion-icon name="chevron-back-outline" size="large"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>
+      Completed
+    </ion-title>
+
+    <ion-button fill="clear" size="small" slot="end">
+      <ion-icon slot="icon-only" name="headset-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="goodluck">
+    <p class="lucktitle">Welcome Good Luck!</p>
+    <div class="buyagain">
+      <ion-button color="secondary" shape="round" size="small" [routerLink]="['/tabs/tab1']">
+        One more order
+      </ion-button>
+    </div>
+  </div>
+
+  <div class="customcard">
+    <div class="localicon">
+      <ion-icon slot="start" name="location-outline"></ion-icon>
+    </div>
+    <div class="localcon">
+      <div class="localaddress">
+        <span>{{ orderdece.address }} ({{ orderdece.housenumber }})</span>
+      </div>
+      <div class="localuserinfo">
+        <span>{{ orderdece.username }}{{ orderdece.gender }} {{ orderdece.phone }}</span>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+
+  <div class="customcard">
+    <div class="ordernum">订单编号: {{ orderdata.ordernum }}</div>
+    <div class="prolist" *ngFor="let v of orderdata.buylist">
+      <div class="proimg">
+        <ion-img [src]="domain + v.pro_pic"></ion-img>
+      </div>
+      <div class="protitlecontent">
+        <p class="protitle">{{ v.pro_title }}</p>
+        <p class="proattrs">{{ v.pro_attrs }}</p>
+      </div>
+      <div class="pronum">
+        x {{ v.pro_count }}
+      </div>
+      <div class="proprice">
+        ￥{{ v.pro_price }}
+      </div>
+    </div>
+    
+    <div class="deliveryfee">
+      <span>配送费</span>
+      <span class="dfee">免费</span>
+    </div>
+    <div class="prosums">
+      <p>共1件商品 实付 <span>￥{{ orderdata.sumfiexd }}</span></p>
+    </div>
+  </div>
+
+  <div class="customcard openremark" (click)="showRemark()">
+    <span class="remarktitle">备注</span>
+    <div class="remarkcontent">
+      <span>{{ remarks }}</span>
+    </div>
+    <div class="remarkicon">
+      <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+    </div>
+  </div>
+
+  <div class="customcard ordertime">
+    下单时间: 1230-12-12
+  </div>
+</ion-content>

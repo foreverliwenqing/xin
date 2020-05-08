@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>Register your phone</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="vericon">
+    <ion-img src="assets/img/phoneve.svg"></ion-img>
+  </div>
+
+  <div class="vercontent">
+    <p class="vertip">我们将以短信的形式将验证码发送至 {{ valCodeMsg.tel }} , 请注意查收. 验证码15分钟内有效</p>
+
+    <ion-input placeholder="please enter verification code" type="text" [(ngModel)]="readCode"></ion-input>
+  
+    <p class="resend resendblack" (click)="resendCode()" *ngIf="resendBtn">Resend</p>
+    <p class="resend" *ngIf="!resendBtn">Resend {{ countDown }}</p>
+
+    <ion-button expand="block" shape="round" (click)="validateCode()">
+      Next
+    </ion-button>
+  </div>
+  
+</ion-content>

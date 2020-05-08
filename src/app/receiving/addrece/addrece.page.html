@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab1" text="Back"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title *ngIf="!isEdit">Add address</ion-title>
+    <ion-title *ngIf="isEdit">Edit address</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-list>
+      <ion-item lines="full">
+        <ion-label>Receiver</ion-label>
+        <ion-input placeholder="请输入用于取货时对您的称呼" [(ngModel)]="receInfo.username"></ion-input>
+      </ion-item>
+
+      <ion-item lines="full">
+        <ion-label>Gender</ion-label>
+        <ion-list class="genderchose">
+          <ion-radio-group name="gender" [(ngModel)]="receInfo.gender">
+            <ion-item lines="none">
+              <ion-label>先生</ion-label>
+              <ion-radio value="sir"></ion-radio>
+            </ion-item>
+            <ion-item lines="none">
+              <ion-label>女士</ion-label>
+              <ion-radio value="lady"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+        </ion-list>
+      </ion-item>
+
+      <ion-item lines="full">
+        <ion-label>Phone Number</ion-label>
+        <ion-input placeholder="请输入手机号码" maxlength='12' [(ngModel)]="receInfo.phone"></ion-input>
+      </ion-item>
+
+      <ion-item lines="full">
+        <ion-label>Street&Building</ion-label>
+        <ion-input placeholder="请输入您的地址" [(ngModel)]="receInfo.address"></ion-input>
+      </ion-item>
+      <!-- <ion-item lines="full"> -->
+        <!-- <ion-label>国家地区选择</ion-label> -->
+        <!-- <ion-button>点击选择城市内容</ion-button> -->
+        <!-- 国家选择内置模块 -->
+        <!-- <div class="customModal" [@controlAni]="modalShow">
+          已经隐藏了内容了
+        </div> -->
+      <!-- </ion-item> -->
+
+      <ion-item lines="full">
+        <ion-label>Nearest landmark if any</ion-label>
+        <ion-input placeholder="例: 5号楼101室" [(ngModel)]="receInfo.housenumber"></ion-input>
+      </ion-item>
+
+      <ion-item lines="full">
+        <ion-label>Email</ion-label>
+        <ion-input placeholder="请输入您的邮箱" [(ngModel)]="receInfo.email"></ion-input>
+      </ion-item>
+
+      <ion-item lines="full">
+        <ion-label>default address</ion-label>
+        <ion-toggle slot="end" [(ngModel)]="receInfo.default_address"></ion-toggle>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+  <div id="savedece" *ngIf="!showDelBtn">
+    <ion-button (click)="addDeceVal()" expand="block" shape="round">
+      comfirm
+    </ion-button>
+  </div>
+
+  <!-- 遮罩层 -->
+  <div class="masklayer" (click)="maskHidn()" [@controlAni]="maskShow ? 'show' : 'hide'"></div>
+  <!-- 遮罩层结束 -->
+
+  <!--编辑保存-->
+  <div class="gaddress decedel" *ngIf="showDelBtn">
+    <ion-button (click)="removeNowRece()" shape="round" color="medium">
+      Delete
+    </ion-button>
+
+    <ion-button (click)="saveNowRece()" shape="round" color="primary">
+      Comfirm
+    </ion-button>
+  </div>
+  <!--编辑保存结束-->
+</ion-content>

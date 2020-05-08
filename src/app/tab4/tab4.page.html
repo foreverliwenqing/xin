@@ -1,0 +1,89 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>tab4</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content>
+  <div class="userinfo">
+    <ion-avatar class="inlinetoblock">
+      <img src="assets/img/face.png" />
+    </ion-avatar>
+
+    <span class="inlinetoblock" [routerLink]="['/login']" *ngIf="!userInfo">
+      Register/Login
+      <ion-icon slot="start" name="chevron-forward-outline"></ion-icon>
+    </span>
+    
+    <span class="inlinetoblock" [routerLink]="['/userset']" *ngIf="userInfo">
+      {{ userInfo.username }}
+      <ion-icon slot="start" name="chevron-forward-outline"></ion-icon>
+    </span>
+  </div>
+  <div class="com_svg_box">
+    <div class="com_svg_a"></div>
+    <div class="com_svg_b"></div>
+  </div>
+
+  <ion-card class="usermoney">
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col>
+          <div>
+            <span class="dm">0</span><span class="tom">元</span>
+          </div>
+          <p>Balance</p>
+        </ion-col>
+        <ion-col>
+          <div>
+            <span class="dm">0</span><span class="tom">张</span>
+          </div>
+          <p>coupon</p>
+        </ion-col>
+        <ion-col>
+          <div>
+            <span class="dm">0</span><span class="tom">张</span>
+          </div>
+          <p>card</p>
+        </ion-col>
+        <ion-col>
+          <div>
+            <span class="dm">0</span><span class="tom">张</span>
+          </div>
+          <p>package</p>
+        </ion-col>
+      </ion-row>
+      
+    </ion-grid>
+  </ion-card>
+
+  <ion-card class="userlist">
+
+    <ion-item lines="none" id="allorder" [routerLink]="['/allorder']">
+      <ion-icon name="newspaper-outline" slot="start" color="danger"></ion-icon>
+      <ion-label>All orders</ion-label>
+    </ion-item>
+
+    <ion-item lines="none" id="mpay">
+      <ion-icon name="card-outline" slot="start" color="success"></ion-icon>
+      <ion-label>Pending payment</ion-label>
+    </ion-item>
+
+    <ion-item lines="none" id="mget">
+      <ion-icon name="train" slot="start" color="warning"></ion-icon>
+      <ion-label>Collection</ion-label>
+    </ion-item>
+
+    <ion-item lines="none" id="myfav">
+      <ion-icon name="star-outline" slot="start" color="tertiary"></ion-icon>
+      <ion-label>My collection</ion-label>
+    </ion-item>
+
+    <ion-item lines="none" id="myserve">
+      <ion-icon name="headset-outline" slot="start" color="secondary"></ion-icon>
+      <ion-label>My customer service</ion-label>
+    </ion-item>
+
+  </ion-card>
+  
+</ion-content>

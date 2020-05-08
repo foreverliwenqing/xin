@@ -1,0 +1,139 @@
+ion-toolbar {
+  --border-color: rgb(244, 244, 244);
+  --background: rgb(244, 244, 244);
+}
+ion-content {
+  --background: rgb(244, 244, 244);
+  ion-card {
+    margin: 1rem;
+  }
+}
+#goodluck {
+  .lucktitle {
+    color: #999;
+    text-align: center;
+    margin: 1rem auto;
+  }
+  .buyagain {
+    text-align: center;
+    ion-button {
+      --padding-start: 1rem;
+      --padding-end: 1rem;
+    }
+  }
+}
+.customcard {
+  margin: 1rem;
+  background: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  font-size: 1.4rem;
+  .localicon {
+    float: left;
+    font-size: 1.6rem;
+    padding: 0.5rem 0.5rem 0.5rem 0;
+  }
+  .localcon {
+    float: left;
+    .localaddress {
+      font-weight: 550;
+      font-size: 1.4rem;
+    }
+    .localuserinfo {
+      color: #999;
+      line-height: 1.5rem;
+    }
+  }
+  .ordernum {
+    border-left: 0.3rem solid #4c8dff;
+    padding-left: 0.5rem;
+    color: #555;
+    font-size: 1.4rem;
+  }
+  .prolist {
+    padding-top: 1rem;
+    display: flex;
+    margin-bottom: 1rem;
+    .proimg {
+      border-radius: 0.5rem;
+      overflow: hidden;
+      ion-img {
+        width: 4rem;
+        height: 4rem;
+      }
+    }
+    .protitlecontent {
+      padding-left: 1rem;
+      .protitle {
+        font-weight: 600;
+        font-size: 1.4rem;
+        width: 20rem;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+      .proattrs {
+        font-size: 1rem;
+        color: #555;
+        line-height: 2rem;
+      }
+    }
+    .pronum {
+      text-align: right;
+      font-size: 1.4rem;
+      flex: 1;
+    }
+    .proprice {
+      text-align: right;
+      font-weight: 550;
+      font-size: 1.4rem;
+      flex: 1;
+    }
+  }
+  .deliveryfee {
+    padding: 1rem 0;
+    color: #555;
+    font-size: 1.4rem;
+    .dfee {
+      float: right;
+      color: #f60;
+      font-weight: 550;
+    }
+  }
+  .prosums {
+    border-top: 0.1rem solid #eee;
+    padding-top: 1rem;
+    text-align: right;
+    span {
+      font-weight: 550;
+      font-size: 1.4rem;
+    }
+  }
+}
+.openremark{
+    display: flex;
+    .remarktitle{
+        padding-right: 1rem;
+        flex: 1;
+        font-size: 1.4rem;
+    }
+    .remarkcontent{
+        text-align: right;
+        flex: 4;
+        margin-top: .1rem;
+        span{
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+        }
+    }
+    .remarkicon{
+        display: inline-block;
+        color: #ccc;
+        margin-top: .2rem;
+    }
+  }
+  .ordertime{
+      color: #999;
+  }

@@ -1,0 +1,83 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" class="searchpaddingtop">
+      <!-- <ion-button (tap)="goBack()">
+        <ion-icon name="chevron-back-outline" size="large"></ion-icon>
+      </ion-button> -->
+      <ion-buttons slot="start">
+        <ion-back-button text="Back" defaultHref="/tabs/tab4"></ion-back-button>
+      </ion-buttons>
+    </ion-buttons>
+
+    <ion-title>Information</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+
+    <ion-list>
+      <ion-item lines="none">
+        <ion-label>Avatar</ion-label>
+        <ion-avatar slot="end">
+          <img src="assets/img/defaultava.jpg" />
+        </ion-avatar>
+        <ion-icon slot="end" name="chevron-forward-outline" size="small"></ion-icon>
+      </ion-item>
+
+      <ion-item lines="none" (click)="usernameEdit()">
+        <ion-label>Username</ion-label>
+
+        <ion-label slot="end" class="vdata">{{ userinfo.username }}</ion-label>
+        <ion-icon slot="end" name="chevron-forward-outline" size="small"></ion-icon>
+      </ion-item>
+
+      <ion-item lines="none" (click)="genderEdit()">
+        <ion-label>Gender</ion-label>
+
+        <ion-label slot="end" class="vdata">{{ userinfo.gender }}</ion-label>
+        <ion-icon slot="end" name="chevron-forward-outline" size="small"></ion-icon>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-label>Bind phone</ion-label>
+
+        <ion-label class="vdata">{{ userinfo.tel }}</ion-label>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-label>Address</ion-label>
+
+        <ion-icon slot="end" name="chevron-forward-outline" size="small"></ion-icon>
+      </ion-item>
+
+      <!-- <ion-item lines="none">
+        <ion-label>账号管理</ion-label>
+
+        <ion-icon slot="end" name="chevron-forward-outline" size="small"></ion-icon>
+      </ion-item> -->
+    </ion-list>
+
+  </ion-card>
+
+  <ion-card>
+    <ion-item lines="none">
+      <ion-label>Language</ion-label>
+
+      <ion-label class="vdata">Chinese</ion-label>
+      <ion-icon slot="end" name="chevron-forward-outline" size="small"></ion-icon>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label>推送通知</ion-label>
+
+      <ion-label class="vdata">已开启</ion-label>
+      <ion-icon slot="end" name="chevron-forward-outline" size="small"></ion-icon>
+    </ion-item>
+  </ion-card>
+
+  <ion-button class="logout" (click)="logout()" expand="block" shape="round" color="primary">
+    Launch login
+  </ion-button>
+
+</ion-content>

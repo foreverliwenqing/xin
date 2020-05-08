@@ -1,0 +1,58 @@
+ion-content{
+    --background: #fff;
+}
+.userinfo{
+    width: 100%;
+    background: url(../../assets/img/userbg.jpg) no-repeat;
+    background-position: 30% 50%;
+    height: 15rem;
+    color: white;
+    padding: 5rem 2rem;
+
+    span{
+        font-size: 16px;
+        padding-left: 1.5rem;
+        position: relative;
+        bottom: 1.5rem;
+    }
+    ion-icon{
+        position: relative;
+        top: .2rem;
+    }
+}
+
+
+.usermoney{
+    text-align: center;
+    position: relative;
+    bottom: 6rem;
+    z-index: 20;
+    margin-bottom: 0;
+
+    .dm{
+        color: #3880ff;
+    }
+    div{
+        line-height: 2.5rem;
+    }
+    .tom{
+        font-size: 1rem;
+        padding-left: .2rem;
+    }
+    
+}
+.userlist{
+    margin-top: 0;
+    position: relative;
+    bottom: 4rem;
+    
+    ion-item{
+        padding: .5rem 0;
+        ion-label{
+            font-size: 1.4rem;
+        }
+        ion-icon{
+            font-size: 2.4rem;
+        }
+    }
+}

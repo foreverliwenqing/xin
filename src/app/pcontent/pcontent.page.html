@@ -1,0 +1,338 @@
+<ion-header>
+
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab1" text=""></ion-back-button>
+    </ion-buttons>
+
+    <ion-segment [(ngModel)]="tabFlag" color="white" (ionChange)="headNavi($event)">
+      <ion-segment-button value="product">
+        <ion-label>commodity</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="comment">
+        <ion-label>assess</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="detail">
+        <ion-label>Details</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="recommend">
+        <ion-label>recommend</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+
+    <ion-button fill="clear" style="--padding-end: 1rem;">
+      <ion-icon slot="icon-only" name="share-outline"></ion-icon>
+    </ion-button>
+    <ion-button fill="clear">
+      <ion-icon slot="icon-only" name="ellipsis-horizontal-outline"></ion-icon>
+    </ion-button>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding (ionScroll)="ionScroll()" scroll-events='true' id='Content'>
+  <!-- <ion-fab id="addData_FabBtn" vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button hidden id='BackTop' (click)="goTop()" size='small'>
+      <ion-icon name="arrow-round-up"></ion-icon>
+    </ion-fab-button>
+  </ion-fab> -->
+  <div class="slidecontent" id="product">
+    <ion-slides pager="ios" [options]="slideOpts" #proslide (ionSlideDidChange)="slideMove()">
+      <ion-slide>
+        <!--*ngFor="let v of prodata.pic"-->
+        <ion-img [src]="domain + prodata.pic"></ion-img>
+      </ion-slide>
+    </ion-slides>
+
+    <div class="slidetip">
+      <span>{{ slideMsg.activeNum }}</span>/
+      <span>{{ slideMsg.allPic }}</span>
+    </div>
+  </div>
+
+  <div class="protitle custom-card">
+    <div class="price">
+      <div class="realprice">
+        <!-- <span>￥</span>
+          <span class="pt">15</span>
+          <span>.80</span> -->
+        <span>￥{{ prodata.price }}</span>
+      </div>
+      <div class="oldprice">
+        <span>￥{{ prodata.old_price }}</span>
+      </div>
+
+      <div class="priceicon">
+        <button>
+          <ion-icon name="star-outline"></ion-icon>
+          <p>收藏</p>
+        </button>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+
+    <div class="proname">
+      {{ prodata.title }}
+    </div>
+
+    <div class="tip">
+      {{ prodata.sub_title }}
+    </div>
+  </div>
+
+  <div class="activeContent">
+    <div class="custom-card activitied" (click)="showActiveTab()">
+      <p>activity</p>
+      <ion-icon name="ellipsis-horizontal-outline"></ion-icon>
+    </div>
+
+
+    <!-- 活动内置模态框 -->
+    <div class="customModal" [@showHideMask]="modalOpenArr.activeModalOpen ? 'modalShow' : 'modalHide'">
+      <div class="activeTitle">
+        <p>活动</p>
+        <ion-button (click)="closeModal()" fill="clear">
+          <ion-icon slot="icon-only" name="close-circle-outline"></ion-icon>
+        </ion-button>
+      </div>
+
+      <ion-list>
+        <ion-item>
+          <p>多单有礼</p>
+          <p>超市购物赢好礼, 点击查看详情</p>
+        </ion-item>
+        <ion-item>
+          <p>多单有礼</p>
+          <p>超市购物赢好礼, 点击查看详情</p>
+        </ion-item>
+      </ion-list>
+    </div>
+    <!-- 内置模态框结束 -->
+  </div>
+
+
+  <div class="custom-card attrChose">
+    <div class="chosecontent">
+
+      <div (click)="showAttrTab()">
+        <span class="title">已选</span>
+        <span class="detail">金汤肥牛面108g*5袋, 1件</span>
+        <ion-icon name="ellipsis-horizontal-outline"></ion-icon>
+      </div>
+
+      <!-- 规格选择内置模态框 -->
+      <div class="customModal" [@showHideMask]="modalOpenArr.attrModalOpen ? 'attrModalShow' : 'attrModalHide'">
+
+        <div class="attrcontent">
+          <div style="height: 100%">
+            <div class="proinfo">
+              <img src="assets/img/7.jpg">
+              <div class="pricesku">
+                <p class="price">￥
+                  <span class="big">15</span>.80</p>
+                <p class="sku">SKU: TEST20200305</p>
+              </div>
+            </div>
+
+            <div class="attrlist">
+
+              <div *ngFor="let v of prodata.attr">
+                <div class="tabtitle">
+                  {{ v.cate }}
+                </div>
+                <div id="allattr">
+                  <ul>
+                    <li *ngFor="let vv of v.list;let kk = index" [ngClass]="{'actives':kk == 0}" (click)="choseAttr($event)">
+                      <span>{{ vv }}</span>
+                    </li>
+                  </ul>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+
+              <div id="buynum">
+                <div class="tabtitle">
+                  Number
+                </div>
+
+                <div class="tabcontents">
+                  <ion-button size="small" fill="clear" (click)="changeNum('reduce')">
+                    <ion-icon slot="icon-only" name="remove-outline"></ion-icon>
+                  </ion-button>
+
+                  <ion-input type="text" name="buynum" value="1" [(ngModel)]="buyNum" readonly="readonly"></ion-input>
+
+                  <ion-button size="small" fill="clear" (click)="changeNum('add')">
+                    <ion-icon slot="icon-only" name="add-outline"></ion-icon>
+                  </ion-button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="buynowcontent">
+            <div>
+              <ion-button class="addcart" expand="block" shape="round" color="secondary" (click)="doAddCart()">
+                Add To Cart
+              </ion-button>
+            </div>
+
+            <div>
+              <ion-button class="buynow" expand="block" shape="round" color="warning" (click)="dobuynow()">
+                Shop Now
+              </ion-button>
+            </div>
+          </div>
+
+          <ion-button class="closeModal" (click)="closeModal()" fill="clear">
+            <ion-icon slot="icon-only" name="close-circle-outline"></ion-icon>
+          </ion-button>
+        </div>
+      </div>
+      <!-- 内置模态框结束 -->
+    </div>
+
+    <div class="mail">
+      <span class="title">运费</span>
+      <span class="detail red">包邮</span>
+      <ion-icon name="ellipsis-horizontal-outline"></ion-icon>
+    </div>
+
+  </div>
+
+  <div class="lastserver">
+    <span>
+      <ion-icon name="checkmark-circle-outline"></ion-icon>
+      <p>自营售后</p>
+    </span>
+    <span>
+      <ion-icon name="checkmark-circle-outline"></ion-icon>
+      <p>极速审核</p>
+    </span>
+  </div>
+
+  <div class="custom-card comment" id="comment">
+    <span>assess</span>
+    <ion-icon name="ellipsis-horizontal-outline"></ion-icon>
+  </div>
+
+  <div class="para" id="detail">
+    <div class="fgx-l"></div>
+    <div class="cont">Details</div>
+    <div class="fgx-r"></div>
+  </div>
+
+  <div class="custom-card prodetails">
+    <div class="procardhead">
+      <ion-icon name="rocket-outline"></ion-icon>
+      <span>Introduction </span>
+    </div>
+
+    <div class="fgx">
+      <hr>
+      <div class="title">information</div>
+    </div>
+
+    <div class="proalldetails" [innerHTML]="prodata.content">
+
+    </div>
+  </div>
+
+  <div class="custom-card recommend" id="recommend">
+    <ion-segment value="pizza">
+      <ion-segment-button value="pizza">
+        <ion-label>recommend</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="pasta">
+        <ion-label>Leaderboard</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="4">
+          <div>
+            <img src="assets/img/4.jpg">
+            <div class="cmsg">
+              <p class="ctitle">康师傅金汤肥牛酸辣牛肉123</p>
+              <p class="cprice">￥29.80</p>
+            </div>
+          </div>
+        </ion-col>
+        <ion-col size="4">
+          <div>
+            <img src="assets/img/5.jpg">
+            <div class="cmsg">
+              <p class="ctitle">统一汤达人方便面袋装5连123</p>
+              <p class="cprice">￥15.80</p>
+            </div>
+          </div>
+        </ion-col>
+        <ion-col size="4">
+          <div>
+            <img src="assets/img/6.jpg">
+            <div class="cmsg">
+              <p class="ctitle">康师傅方便面金汤肥牛鲜虾套装123</p>
+              <p class="cprice">￥20.50</p>
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <div class="custom-card custserve">
+    <div class="procardhead">
+      <ion-icon name="rocket-outline"></ion-icon>
+      <span>包装售后</span>
+    </div>
+
+    <div class="fgx">
+      <hr>
+      <div class="title">价格说明</div>
+    </div>
+
+    <div class="custcontent">
+      <p>1、自营价: 自营价为商品的销售价, 是您最终决定是否购买商品的依据。</p>
+      <p>2、折扣: 如无特殊说明, 折扣指销售商在原价、或划线价 (如品牌专柜价、商品品牌价、厂商指导价、厂商建议零售价) 等某一价格基础上计算出的优惠比例或优惠金额；如有疑问, 您可在购买前联系销售商进行咨询。</p>
+    </div>
+  </div>
+
+  <div class="nomore">
+    <img src="assets/img/nodata02.png">
+    <p>No More~</p>
+  </div>
+
+  <!-- 回到顶部 -->
+  <div class="goTop" (click)="goTop()">
+    Top
+  </div>
+
+  <!-- 遮罩层 -->
+  <div class="masklayer" (click)="closeModal()" [@showHideMask]="maskShow ? 'show' : 'hide'"></div>
+  <!-- 遮罩层结束 -->
+
+  <footer class="buycontent">
+    <ul>
+      <li (click)="goService()">
+        <ion-icon name="headset-outline"></ion-icon>
+        <p>concat</p>
+      </li>
+      <li class="gocart" (click)="openCartModal()">
+        <ion-badge color="danger">{{ cartNum }}</ion-badge>
+        <ion-icon name="cart-outline"></ion-icon>
+        <p>Cart</p>
+      </li>
+    </ul>
+
+    <div class="buybtn">
+      <ion-button color="secondary" shape="round" (click)="addCart()">
+        Add To Cart
+      </ion-button>
+      <ion-button color="warning" shape="round" (click)="buynow()">
+        Shop Now
+      </ion-button>
+    </div>
+
+  </footer>
+</ion-content>

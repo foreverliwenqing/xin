@@ -1,0 +1,66 @@
+ion-toolbar {
+  --background: rgb(244, 244, 244);
+  --border-color: rgb(244, 244, 244);
+}
+ion-content {
+  --background: rgb(244, 244, 244);
+}
+#emptyrece {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 30%;
+  color: #999;
+  img {
+    width: 15rem;
+  }
+}
+.gaddress {
+  padding: 1rem;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+#decehead {
+  margin-left: 1rem;
+  /* font-size: 1.4rem; */
+  color: #999;
+}
+ion-card {
+  margin: 1rem;
+  ion-item {
+    --border-color: #eee;
+    position: relative;
+    .decemi {
+      display: flex;
+      padding: 1rem 0;
+    }
+    .userdececontent{
+        div{
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+        }
+        .gdece{
+            font-size: 1.4rem;
+        }
+        .userdece{
+            font-size: 1.4rem;
+            color: #555;
+            padding-top: .5rem;
+            display: flex;
+            ion-badge{
+              font-size: 1.4rem;
+              border-radius: 0;
+            }
+        }
+    }
+    .editicon{
+        position: absolute;
+        right: 1rem;
+        top: 1.8rem;
+    }
+  }
+}

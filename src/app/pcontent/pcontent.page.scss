@@ -1,0 +1,500 @@
+ion-toolbar {
+  --background: white;
+  --border-color: white;
+  ion-back-button {
+    --padding-end: 2rem;
+  }
+  ion-segment {
+    border-radius: 0;
+    ion-segment-button {
+      --background: rgba(244, 244, 244);
+      --background-focused: rgba(244, 244, 244);
+      --background-focused-opacity: 0;
+      --background-hover: rgba(244, 244, 244);
+      --background-hover-opacity: 0;
+      --border-color: white;
+      --color: rgba(244, 244, 244);
+      --border-radius: 0;
+      --indicator-box-shadow: 0 0.5rem 0 #36abe0;
+      --indicator-color: rgba(244, 244, 244);
+      --padding-start: 0;
+      --padding-end: 0;
+      min-width: 4rem;
+    }
+  }
+  ion-button {
+    --padding-start: 0;
+    --padding-end: 0;
+    font-size: 1rem;
+  }
+}
+ion-content {
+  --background: rgba(244, 244, 244);
+  .slidecontent {
+    position: relative;
+    background: #fff;
+    .slidetip {
+      position: absolute;
+      padding: 0.5rem 1.5rem;
+      background: rgba(0, 0, 0, 0.2);
+      color: white;
+      border-radius: 5rem 0 0 5rem;
+      right: 0;
+      bottom: 0.5rem;
+      z-index: 100;
+    }
+  }
+
+  .custom-card {
+    background: #fff;
+    margin-top: 1rem;
+    border-radius: 0 0 0.5rem 0.5rem;
+    padding: 1rem;
+    .procardhead {
+      padding-bottom: 1rem;
+      ion-icon {
+        padding-right: 0.5rem;
+      }
+    }
+    .fgx {
+      position: relative;
+      padding-bottom: 2rem;
+      hr {
+        background: #eee;
+      }
+      .title {
+        position: absolute;
+        left: 40%;
+        background: white;
+        top: -1.8rem;
+        padding: 1rem;
+        color: #aaa;
+      }
+    }
+  }
+
+  .protitle {
+    .price {
+      color: red;
+      font-weight: 600;
+      height: 2.7rem;
+      .pt {
+        font-size: 2rem;
+      }
+      .realprice {
+        float: left;
+        font-size: 2.4rem;
+      }
+      .oldprice {
+        text-decoration: line-through;
+        color: #999;
+        float: left;
+        font-size: 1.4rem;
+        line-height: 2.5rem;
+        padding-left: 0.5rem;
+      }
+      .priceicon {
+        float: right;
+        button {
+          font-size: 1.2rem;
+          background: #fff;
+          padding-right: 0.5rem;
+          ion-icon {
+            font-size: 1.6rem;
+          }
+          p {
+            font-size: 0.8rem;
+          }
+        }
+      }
+    }
+    .proname {
+      font-weight: 600;
+      padding-top: 1rem;
+      font-size: 1.4rem;
+    }
+    .tip {
+      padding-top: 1rem;
+      color: #aaa;
+    }
+  }
+
+  .activeContent {
+    .activeTitle {
+      position: relative;
+      p {
+        text-align: center;
+        padding: 1rem;
+        font-size: 1.4rem;
+        font-weight: 600;
+      }
+      ion-button {
+        position: absolute;
+        right: 0;
+        top: 0;
+        font-size: 1rem;
+        color: black;
+      }
+    }
+  }
+
+  .activitied {
+    p {
+      font-weight: 600;
+      font-size: 1.3rem;
+      display: inline-block;
+    }
+    ion-icon {
+      float: right;
+      font-size: 1.6rem;
+    }
+  }
+
+  .attrChose {
+    border-radius: 0.5rem 0.5rem 0 0;
+    ion-icon {
+      float: right;
+      font-size: 1.6rem;
+    }
+    .title {
+      font-weight: 600;
+      padding-right: 1rem;
+    }
+    .chosecontent {
+      padding-bottom: 1.5rem;
+      .title, .detail {
+        font-size: 1.3rem;
+      }
+    }
+    .mail {
+      .title, .detail {
+        font-size: 1.3rem;
+      }
+      .red {
+        color: red;
+      }
+    }
+    .customModal {
+      height: 85%;
+      left: 0;
+      .attrcontent {
+        padding: 1rem;
+        height: 100%;
+        .proinfo {
+          margin-bottom: 1rem;
+          img {
+            width: 8rem;
+            height: 8rem;
+          }
+          .pricesku {
+            display: inline-block;
+            padding-left: 1rem;
+            font-weight: 600;
+            .price {
+              color: red;
+              font-size: 1.4rem;
+            }
+            .big {
+              font-size: 2rem;
+            }
+            .sku {
+              color: #999;
+              font-weight: 500;
+            }
+          }
+        }
+        .tabtitle {
+          font-weight: 600;
+          margin-top: 1rem;
+          margin-bottom: 1rem;
+        }
+        #allattr {
+          li {
+            float: left;
+            margin: 1rem 1rem 1rem 0;
+            font-size: 1.1rem;
+            span {
+              padding: 0.5rem 1.5rem;
+              border-radius: 5rem;
+              background: rgb(230, 230, 230);
+            }
+          }
+          .actives {
+            span {
+              border: 1px solid red;
+              color: red;
+              background: rgb(255, 240, 240);
+            }
+          }
+        }
+        .attrlist {
+          overflow-y: scroll;
+          overflow-x: hidden;
+          height: 60%;
+          .tabtitle {
+            font-size: 1.3rem;
+          }
+          #buynum {
+            display: flex;
+            .tabtitle {
+              flex: 1;
+              font-size: 1.3rem;
+            }
+            ion-button {
+              display: inline-block;
+              position: relative;
+              bottom: 0.4rem;
+            }
+            ion-input {
+              color: black;
+              font-weight: 600;
+              width: 4rem;
+              height: 2rem;
+              background: rgb(230, 230, 230);
+              text-align: center;
+              --padding-end: 0;
+              display: inline-block;
+            }
+            .tabcontents {
+              text-align: right;
+              margin-top: 1rem;
+              ion-button {
+                font-size: 1.5rem;
+                font-weight: 400;
+                color: black;
+              }
+            }
+          }
+        }
+      }
+      // .buynumcontent {
+      //   .tabtitle {
+      //     display: inline-block;
+      //   }
+      //   .buynum {
+      //     display: inline-block;
+      //     float: right;
+      //     margin-top: 0.7rem;
+      //     ion-button {
+      //       display: inline-block;
+      //       width: 3rem;
+      //       height: 2rem;
+      //       position: relative;
+      //       bottom: 0.4rem;
+      //       color: black;
+      //     }
+      //     ion-input {
+
+      //       width: 4rem;
+      //       height: 2rem;
+      //       background: rgb(230, 230, 230);
+      //       text-align: center;
+      //       --padding-end: 0;
+      //       display: inline-block;
+      //     }
+      //   }
+      // }
+      .buynowcontent {
+        display: flex;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        background: #f4f4f4;
+        left: 0;
+        div {
+          width: 50%;
+        }
+      }
+
+      .closeModal {
+        position: absolute;
+        right: 0;
+        top: 0;
+        font-size: 1rem;
+        color: black;
+      }
+    }
+  }
+  .lastserver {
+    background: rgba(250, 250, 250);
+    padding: 1rem;
+    color: #999;
+    border-radius: 0 0 0.5rem 0.5rem;
+    span {
+      padding-right: 1rem;
+      ion-icon {
+        color: red;
+        font-size: 1.2rem;
+        padding-right: 0.5rem;
+      }
+      p {
+        display: inline-block;
+      }
+    }
+  }
+
+  .comment {
+    span {
+      font-weight: 600;
+      padding-right: 1rem;
+      font-size: 1.3rem;
+    }
+    ion-icon {
+      float: right;
+      font-weight: 600;
+      font-size: 1.6rem;
+    }
+  }
+
+  .recommend {
+    border-radius: 0.5rem;
+    ion-segment {
+      border-radius: 0;
+      background: white;
+
+      ion-segment-button {
+        --background: white;
+        --background-focused: white;
+        --background-hover: white;
+        --border-color: white;
+        --color: black;
+        --border-radius: 0;
+        --indicator-box-shadow: 0 0.5rem 0 #36abe0;
+        --indicator-color: white;
+        --padding-start: 0;
+        --padding-end: 0;
+        --background-checked: white;
+        min-width: 4rem;
+      }
+    }
+    ion-grid {
+      img {
+        border-radius: 1rem;
+      }
+      .cmsg {
+        padding: 0.5rem;
+        .ctitle {
+          overflow: hidden;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          margin-bottom: 0.5rem;
+        }
+      }
+    }
+  }
+
+  .prodetails {
+    padding: 0.5rem;
+    p {
+      img {
+        vertical-align: middle;
+      }
+    }
+  }
+
+  .para {
+    margin-top: 1rem;
+    text-align: center;
+    div {
+      display: inline-block;
+    }
+    .fgx-l {
+      background-image: url(../../assets/img/fgx-l.png);
+      width: 3rem;
+      height: 1.5rem;
+      background-position: 40px 50px;
+      opacity: 0.3;
+    }
+    .cont {
+      position: relative;
+      bottom: 0.2rem;
+    }
+    .fgx-r {
+      background-image: url(../../assets/img/fgx-r.png);
+      width: 3rem;
+      height: 1.5rem;
+      background-position: 80px 50px;
+      opacity: 0.3;
+    }
+  }
+
+  .custserve {
+    .custcontent {
+      color: #999;
+    }
+  }
+
+  .nomore {
+    margin-bottom: 5.5rem;
+    text-align: center;
+    img {
+      width: 10%;
+    }
+    p {
+      color: #aaa;
+    }
+  }
+
+  // 回到顶部
+  .goTop {
+    position: fixed;
+    right: 3rem;
+    bottom: 8rem;
+    width: 4rem;
+    height: 4rem;
+    line-height: 4rem;
+    color: rgb(140, 140, 140);
+    font-size: 1.4rem;
+    box-shadow: rgba(26, 26, 26, 0.1) 0px .1rem .3rem;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    text-align: center;
+    font-weight: 800;
+  }
+
+  /* footer */
+  .buycontent {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    background: #fff;
+    border: 0;
+    border-top: 0.5px solid #eee;
+    padding-bottom: .5rem;
+    .buybtn {
+      position: absolute;
+      right: 0;
+      // top: -0.1rem;
+      ion-button {
+        --padding-start: 1.8rem;
+        --padding-end: 1.8rem;
+      }
+    }
+    ul {
+      display: flex;
+      li {
+        padding: 0.5rem 1rem;
+        text-align: center;
+        min-width: 5rem;
+        ion-icon {
+          font-size: 2rem;
+        }
+        p {
+          color: #555;
+        }
+      }
+    }
+    .gocart {
+      position: relative;
+      ion-badge {
+        position: absolute;
+        right: 0;
+        top: 0.2rem;
+        z-index: 10;
+        font-size: 1rem;
+      }
+    }
+  }
+}

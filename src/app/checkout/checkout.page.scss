@@ -1,0 +1,223 @@
+ion-toolbar {
+  // --border-color: rgb(211, 116, 116);
+  --background: rgb(244, 244, 244);
+}
+ion-content {
+  --background: rgb(244, 244, 244);
+  ion-card{
+      margin: 1rem;
+  }
+}
+.deliverycontent {
+  cursor: pointer;
+  position: relative;
+  border: 2px dashed #b8c0cc;
+  border-radius: 4px;
+  transition: border 0.2s ease;
+  box-sizing: border-box;
+  margin: 1rem;
+  .delivery {
+    padding: 0.5rem;
+    color: #999;
+    transition: color 0.2s ease;
+    ion-icon {
+      font-size: 2rem;
+      display: inline-block;
+      padding-top: 0.4rem;
+    }
+    p {
+      display: inline-block;
+      font-size: 1.6rem;
+      position: relative;
+      bottom: 0.3rem;
+    }
+  }
+  .delivery:hover{
+    color: #50c8ff;
+  }
+}
+.deliverycontent:hover {
+  border-color: #50c8ff;
+}
+
+#addresscontent {
+  padding: 1rem;
+  display: flex;
+  .locationicon {
+    font-size: 3rem;
+    vertical-align: middle;
+    line-height: 1.5rem;
+  }
+  .addressset {
+    padding-left: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    .addressel {
+      overflow: hidden;
+    }
+    .delicontact {
+      overflow: hidden;
+      font-size: 1.4rem;
+      margin-top: 0.2rem;
+      ion-badge{
+        border-radius: 0;
+        background: transparent;
+        color: #666;
+        padding: 0;
+        font-size: 1.4rem;
+      }
+    }
+  }
+}
+.prosum {
+  text-align: right;
+  padding: 0.8rem 1rem;
+  font-size: 1.2rem;
+  span {
+    font-size: 1.6rem;
+    font-weight: 600;
+  }
+}
+#prolist {
+  ion-label {
+    margin-bottom: 0;
+  }
+  .prodata {
+    display: flex;
+    line-height: 3rem;
+    .protitle {
+      flex: 2;
+      font-weight: 600;
+      font-size: 1.4rem;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+    .pronum {
+      flex: 1;
+      font-size: 1.4rem;
+      text-align: center;
+    }
+    .proprice {
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+  }
+  .proimg {
+    float: left;
+    width: 5rem;
+    height: 5rem;
+    img {
+      border-radius: 0.5rem;
+    }
+  }
+  .prodetail {
+    margin-left: 6rem;
+    .proattr {
+      font-size: 1rem;
+    }
+  }
+  ion-item {
+    --padding-start: 1rem;
+    --padding-end: 0;
+  }
+  #discontent {
+    margin-bottom: 1rem;
+    .disfee {
+      display: inline-block;
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+    .disprice {
+      display: inline-block;
+      float: right;
+      color: #f60;
+      font-size: 1.4rem;
+    }
+  }
+}
+.paytype{
+    padding: 1rem;
+    div{
+        display: inline-block;
+    }
+    .paylist{
+        float: right;
+        ion-icon{
+            font-size: 1.6rem;
+        }
+        .payicon{
+          ion-icon{
+            font-size: 2rem;
+          }
+          margin-right: 1rem;
+        }
+        .paytitle{
+          position: relative;
+          bottom: .4rem;
+        }
+        .paygo{
+          position: relative;
+          bottom: .1rem;
+        }
+    }
+}
+#remarkcontent{
+  padding: 1rem;
+  display: flex;
+  div{
+    display: inline-block;
+  }
+  .remarktitle{
+    margin-right: 1rem;
+    flex: 1;
+  }
+  .remarktext{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    flex: 3;
+  }
+  .remarkicon{
+    margin-top: .2rem;
+  }
+}
+#checkfooter{
+  position: fixed;
+  bottom: 0;
+  background: white;
+  width: 100%;
+  .checkprice{
+    float: left;
+    font-size: 1.4rem;
+    padding: 1.25rem;
+    span{
+      font-size: 1.6rem;
+      color: #F60;
+      font-weight: 600;
+    }
+  }
+  .checkbtn{
+    float: right;
+    ion-button{
+      margin: 1rem;
+    }
+  }
+  #gologin{
+    padding: .5rem;
+    border-bottom: 1px solid #eee;
+    ion-button{
+      margin: 0;
+    }
+    p{
+      display: inline-block;
+      font-size: 1rem;
+      color: #999;
+      padding-left: 1rem;
+      position: relative;
+      top: .3rem;
+    }
+  }
+}

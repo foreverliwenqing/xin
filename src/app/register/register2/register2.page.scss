@@ -1,0 +1,40 @@
+ion-header{
+    --background: #eee;
+    ion-toolbar{
+        --border-color: #eee;
+        --background: #eee;
+    }
+}
+ion-content{
+    --background: #eee;
+}
+.vericon{
+    ion-img{
+        width: 5rem;
+        height: 5rem;
+        margin: 3rem auto;
+    }
+}
+.vercontent{
+    padding: 0 1rem;
+    .vertip{
+        font-size: 1.6rem;
+    }
+    ion-input{
+        background: #fff;
+        border-radius: .5rem;
+        margin: 1rem 0;
+        --padding-start: .5rem;
+        font-size: 1.6rem;
+    }
+    .resend{
+        font-size: 1.4rem;
+        color: #aaa;
+    }
+    .resendblack{
+        color: black;
+    }
+    ion-button{
+        margin-top: 3rem;
+    }
+}

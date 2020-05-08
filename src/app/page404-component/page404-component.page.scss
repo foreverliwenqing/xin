@@ -1,0 +1,37 @@
+ion-content {
+  .errorContent {
+    width: 100%;
+    padding: 0 10%;
+    .imgContent {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;  
+      margin-top: 10rem;
+      img {
+        width: 18rem;
+      }
+    }
+    h3{
+      margin: 3rem 0;
+      font-weight: 700;
+      color: #333;
+      text-align: center;
+      font-size: 1.6rem;
+    }
+    .btn {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
+ion-button {
+  display: inline-block;
+  text-align: center;
+  padding: 10px 0;
+  width: 60%;
+  border-radius: 50px;
+  color: #fff;
+  height: 6.6rem;
+}

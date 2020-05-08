@@ -1,0 +1,35 @@
+ion-header{
+    --background: #eee;
+    ion-toolbar{
+        --border-color: #eee;
+        --background: #eee;
+    }
+}
+ion-content{
+    --background: #eee;
+}
+.inphone{
+    padding: 2rem 1rem;
+    ion-item{
+        --background: #eee;
+    }
+    ion-select{
+        --padding-start: 0;
+        --padding-end: 1rem;
+        font-size: 1.4rem;
+        ion-select-option{
+            
+        }
+    }
+    ion-input{
+        font-size: 1.4rem;
+    }
+
+    ion-button{
+        margin-top: 5rem;
+    }
+    p{
+        margin-top: 1rem;
+        color: #999;
+    }
+}

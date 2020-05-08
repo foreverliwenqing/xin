@@ -1,0 +1,200 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import "~@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+body,
+div,
+ul,
+li,
+ol,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+textarea,
+select,
+p,
+dl,
+dt,
+dd,
+a,
+img,
+button,
+form,
+table {
+  margin: 0;
+  padding: 0;
+}
+ul,
+ol {
+  list-style: none;
+}
+html {
+  font-size: 62.5%; //10px
+  max-width: 750px !important;
+  min-width: 375px !important;
+  margin: 0 auto !important;
+}
+.clearfix {
+  &::after {
+    display: block;
+    content: "";
+    height: 0px;
+    clear: both;
+  }
+}
+body {
+  font-family: arial, Tahoma, Helvetica, "Microsoft Yahei", sans-serif;
+  max-width: 750px !important;
+  min-width: 375px !important;
+}
+.inlinetoblock {
+  display: inline-block;
+}
+//搜索栏样式
+
+ion-toolbar{
+    .head-fix {
+        padding-top: 1.3rem;
+      }
+      .head-fix-icon {
+        padding-top: 0.8rem;
+      }
+      .anchat {
+        position: relative;
+        right: 0.6rem;
+        .chattip {
+          position: absolute;
+          right: -0.2rem;
+          top: 0.8rem;
+          font-size: 10px;
+        }
+      }
+}
+.sleft{
+  float: left;
+}
+.sright{
+  float: right;
+}
+.masklayer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  display: none;
+  // animation: maskshow .5s forwards;
+  // -webkit-animation:maskshow .5s forwards;
+}
+.customModal{
+  width: 100%;
+  height: 60%;
+  background: rgb(244,244,244);
+  position: fixed;
+  border-radius: .5rem .5rem 0 0;
+  z-index: 110;
+}
+/*注册验证码错误弹框*/
+.coder{
+  --background: #fff;
+  --color: black;
+  --border-radius: 5rem;
+  text-align: center;
+  --width: 50%;  
+}
+
+@keyframes maskshow {
+  from {
+    background: rgb(0,0,0,0);
+  }
+  to {
+    background: rgba(0,0,0,.3);
+  }
+}
+
+.com_svg_box {
+  position: absolute;
+  left: 0;
+  height: 2.6rem;
+  width: 100%;
+  z-index: 1;
+  top: 13rem;
+
+  .com_svg_a,
+  .com_svg_b {
+      position: absolute;
+      width: 100%;
+      height: 2.6rem;
+  }
+
+  .com_svg_a {
+      background: url(assets/img/comiis_a.svg) repeat-x;
+      background-size: 45rem;
+      -webkit-animation: comiis_bgdwtop 3.5s infinite linear;
+      animation: comiis_bgdwtop 3.5s infinite linear;
+  }
+
+  .com_svg_b {
+      background: url(/assets/img/comiis_b.svg) repeat-x;
+      top: .5rem;
+      background-size: 45rem;
+      -webkit-animation: comiis_bgdwbm 6s infinite linear;
+      animation: comiis_bgdwbm 6s infinite linear;
+  }
+}
+@keyframes comiis_bgdwtop {
+  0% {
+      background-position: 0 top;
+  }
+  100% {
+      background-position: 45rem top;
+  }
+}
+@keyframes comiis_bgdwbm {
+  0% {
+      background-position: 0 top;
+  }
+  100% {
+      background-position: 45rem top;
+  }
+}
+.quitTip{
+  --background: white;
+  --border-color: #eee;
+  --width: 20rem;
+  text-align: center;
+  --border-style: solid;
+  --border-width: 1px;
+  --height: 4rem;
+}
+.toast-wrapper.toast-bottom{
+  bottom: 5rem;
+}

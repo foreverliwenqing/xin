@@ -1,0 +1,84 @@
+<ion-header [translucent]="true">
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- 刷新页面 -->
+    <!-- 下拉刷新 -->
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)" pullFactor="0.5" pullMin="100" pullMax="200">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <div id="floatBack">
+    <div id="backcontent"></div>
+    <div class="com_svg_box">
+      <div class="com_svg_a"></div>
+      <div class="com_svg_b"></div>
+    </div>
+  </div>
+
+  <div class="emptycart" *ngIf="isNull">
+    <ion-img src="assets/img/nodata02.png"></ion-img>
+    <div class="emptytip">
+      <p>Your Cart is empty</p>
+      <ion-button shape="round" size="small" [routerLink]="['/tabs/tab1']">
+        Go shopping
+      </ion-button>
+    </div>
+  </div>
+  <div class="headers" *ngIf="!isNull">
+    <ion-card>
+      <ion-list>
+        <ion-item lines="full" class="carthead">
+
+          <div (click)="checkAllNone()">
+            <ion-checkbox color="secondary" [(ngModel)]="isCheckAll"></ion-checkbox>
+          </div>
+
+          <ion-label>
+            Cart
+          </ion-label>
+          <ion-button slot="end" fill="clear" shape="round" (click)="clearCart()">
+            <ion-icon name="trash-outline"></ion-icon>
+            Empty
+          </ion-button>
+        </ion-item>
+  
+        <ion-item *ngFor="let v of cartList;let k=index" lines="full" class="cartbody">
+          <div class="prodetail">
+            <ion-checkbox color="secondary" [(ngModel)]="v.ischeck" (ionChange)="cartCheck(v)"></ion-checkbox>
+            <ion-img [src]="[domain + v.pro_pic]"></ion-img>
+            <ion-label>
+              <p class="blod">{{ v.pro_title }}</p>
+              <p class="smalls">{{ v.pro_attrs }}</p>
+              <p class="blod">￥{{ v.pro_price }}</p>
+            </ion-label>
+          </div>
+  
+          <div class="nums">
+            <ion-button (click)="cartReduce(k,v)">
+              <ion-icon slot="icon-only" name="remove-circle-outline"></ion-icon>
+            </ion-button>
+            <ion-input type="number" readonly placeholder="Awesome Input" [value]="[v.pro_count]"></ion-input>
+            <ion-button (click)="cartNumAdd(v)">
+              <ion-icon slot="icon-only" name="add-circle"></ion-icon>
+            </ion-button>
+          </div>
+        </ion-item>
+
+        <ion-item class="cartfoot">
+          <ion-label>
+            Total
+            <p id="cartsum">￥{{ cartSum }}</p>
+          </ion-label>
+  
+          <ion-button shape="round" size="default" (click)="goCheckOut()">
+            Settlement
+          </ion-button>
+        </ion-item>
+      </ion-list>
+
+    </ion-card>
+  </div>
+  
+</ion-content>

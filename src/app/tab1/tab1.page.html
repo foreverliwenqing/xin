@@ -1,0 +1,82 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+
+    <ion-buttons slot="start" class="head-fix-icon">
+      <ion-button>
+        <ion-icon slot="icon-only" name="qr-code-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-searchbar placeholder="Please enter a keyword" animated inputmode="decimal" type="decimal" [debounce]="250" padding
+      class="head-fix" (tap)="goSearch()"></ion-searchbar>
+
+    <ion-buttons slot="end" class="head-fix-icon anchat">
+      <ion-button>
+        <ion-icon slot="icon-only" name="chatbubble-outline"></ion-icon>
+      </ion-button>
+
+      <ion-badge color="danger" class="chattip">50</ion-badge>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" delegate-handle="scrollerHandle" overflow-scroll="false">
+  <!-- 下拉刷新 -->
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)" pullFactor="0.5" pullMin="100" pullMax="200">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+  
+  <ion-slides pager="true" [options]="slidesOpt" (ionSlideTouchEnd)="slideFunc('start')" #homeslide>
+    <ion-slide *ngFor="let v of slideList">
+      <img [src]="domainapi + v.pic" [routerLink]="['/pcontent']" [queryParams]="{id: v._id}">
+    </ion-slide>
+  </ion-slides>
+
+  <div class="h_title">
+    You may also like
+  </div>
+
+  <div class="hotlist">
+    <ul class="clearfix" [ngStyle]="{'width': hotWidth}">
+      <li *ngFor="let v of hotList" [routerLink]="['/pcontent']" [queryParams]="{id:v._id}">
+        <img [src]="domainapi + v.s_pic">
+        <p>{{ v.title }}</p>
+      </li>
+    </ul>
+  </div>
+
+  <div class="h_title">
+    Recommend for you
+  </div>
+
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="6" *ngFor="let v of proList" [routerLink]="['/pcontent']" [queryParams]="{id: v._id}">
+        <div class="pcontent">
+          <img [src]="domainapi + v.s_pic">
+          <div class="promsg">
+            <p class="ptitle">{{ v.title }}</p>
+            <div class="pricecontent">
+              <div>
+                <span class="price">￥{{ v.price }}</span>
+                <span class="oldprice">￥{{ v.old_price }}</span>
+                <ion-buttons slot="end">
+                  <ion-button>
+                    <ion-icon slot="icon-only" name="cart-outline"></ion-icon>
+                  </ion-button>
+                </ion-buttons>
+                <div class="clearfix"></div>
+              </div>
+            </div>
+            <div class="selld">
+              Sold3000+Piece
+            </div>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

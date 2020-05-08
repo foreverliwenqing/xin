@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab4" text="Back"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Order</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="allOrderIsNull" id="orderlistnullcontent">
+    <div class="nullicon">
+      <ion-img src="assets/img/empty-channel.png"></ion-img>
+    </div>
+    <div class="nulltitle">
+      <p>You haven't bought anything~</p>
+    </div>
+    <div class="nullbtn">
+      <ion-button shape="round" size="small" [routerLink]="['/tabs/tab1']">
+        Go shopping
+        <ion-icon slot="end" name="cart-outline"></ion-icon>
+      </ion-button>
+    </div>
+  </div>
+
+
+  <div id="orderlistcontent" *ngIf="!allOrderIsNull">
+    <!--删除订单和再来一单的点击事件 注意伪事件冒泡-->
+    <div class="allordercontent" *ngFor="let v of allOrderList" (click)="goFulfillment(v.orderdece.phone, v.ordernum)">
+      <div class="ordertitle">
+        <span class="orderaddress">{{ v.orderdece.address }} ({{ v.orderdece.housenumber }})</span>
+        <span class="orderstatus">
+          <span [ngSwitch]="v.status" class="order-status-content">
+            <span *ngSwitchCase="2">订单正在运送</span>
+            <span *ngSwitchCase="3">已完成</span>
+            <span *ngSwitchDefault>Order submitted</span>
+          </span>
+          <div (click)="removeOrder($event, v.ordernum)" class="trashbtn">
+            <ion-icon name="trash-outline" ></ion-icon>
+          </div>
+        </span>
+      </div>
+      
+      <div *ngFor="let vv of v.buylist">
+        <div class="prolist">
+          <div class="proimg">
+            <ion-img [src]="domain + vv.pro_pic"></ion-img>
+          </div>
+          <div class="protitle">
+            <p class="proname">{{ vv.pro_title }}</p>
+            <p class="proattr">{{ vv.pro_attrs }}</p>
+          </div>
+          <div class="pronum">
+            <span>x {{ vv.pro_count }}</span>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+      
+      <div class="ordersumscontent">
+        <span>{{ v.localtime }}</span>
+        <span class="ordersumtip">共{{ v.buynum }}件商品 合计: <p class="ordersums">￥{{ v.buysum.toFixed(2) }}</p></span>
+      </div>
+  
+      <div class="clearfix"></div>
+  
+      <div class="orderagain">
+        <ion-button shape="round" size="small"  color="secondary" (click)="buyAgain($event)">
+          Here is a single
+        </ion-button>
+      </div>
+    </div>
+    
+  </div>
+  
+
+</ion-content>

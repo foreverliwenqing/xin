@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" class="searchpaddingtop">
+      <ion-button (tap)="goBack()">
+        <ion-icon name="chevron-back-outline" size="large"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-searchbar placeholder="请输入" slot="start"></ion-searchbar>
+
+    <ion-buttons slot="end" class="searchpaddingtop">
+      <ion-button (click)="doSearch()" fill="clear">
+        <ion-icon name="search-sharp"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+
+  <ion-toolbar class="cardradius botrad">
+    <div class="gar">
+      <div *ngFor="let v of subHeaderList;let k=index" (click)="changeSubHeader(k)" [ngClass]="{'cactived': k == subHeaderChosedid}">{{ v.title }}</div>
+
+      <!-- <div>店铺</div>
+      <div>筛选<ion-icon name="funnel-outline"></ion-icon> </div> -->
+    </div>
+
+    <div class="gartag">
+      <ul>
+        <li>京东物流</li>
+        <li>新品</li>
+        <li>品牌<ion-icon name="chevron-down-outline"></ion-icon></li>
+        <li>包装<ion-icon name="chevron-down-outline"></ion-icon></li>
+        <li>口味<ion-icon name="chevron-down-outline"></ion-icon></li>
+        <li>产地<ion-icon name="chevron-down-outline"></ion-icon></li>
+      </ul>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content #procontent>
+  <ion-list id="prolist">
+    <ion-item *ngFor="let v of productList" [routerLink]="['/pcontent']" [queryParams]="{id: v._id}">
+      <ion-img slot="start" [src]="domain + v.s_pic"></ion-img>
+
+      <ion-label>
+        <p class="title">
+          {{ v.title }}
+        </p>
+        <ion-badge color="primary" class="protag">本地</ion-badge>
+        <div class="price">
+          <span class="totals">￥</span><span class="dtotal">{{ v.price }}</span>
+        </div>
+        <div class="hottag">
+          <ion-badge color="danger" class="hottag">自营</ion-badge>
+        </div>
+        <div class="shopmsg">
+          10万+条评价 90%好评 
+        </div>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-infinite-scroll *ngIf="infiniteOpen" threshold="25%" position="bottom" (ionInfinite)="getProductList($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="加载中...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

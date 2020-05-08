@@ -1,0 +1,121 @@
+ion-toolbar {
+  --background: rgb(244, 244, 244);
+  --border-color: rgb(244, 244, 244);
+}
+ion-content {
+  --background: rgb(244, 244, 244);
+}
+.allordercontent {
+  background: white;
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  .ordertitle {
+    padding-bottom: 1rem;
+    border-bottom: 0.1rem solid #eee;
+    display: flex;
+    font-size: 1.4rem;
+    .orderaddress{
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      flex: 2;
+    }
+    .orderstatus {
+      float: right;
+      color: #999;
+      .order-status-content {
+        padding-right: 0.5rem;
+        border-right: 0.1rem solid #eee;
+      }
+      .trashbtn{
+        display: inline-block;
+        font-size: 1.4rem;
+        ion-icon {
+          padding-left: 0.5rem;
+        }
+      }
+      
+    }
+  }
+  .prolist {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    display: flex;
+    div {
+      float: left;
+    }
+    .proimg {
+      border-radius: 0.5rem;
+      ion-img {
+        width: 4rem;
+        height: 4rem;
+      }
+    }
+    .protitle {
+      padding-left: 1rem;
+      padding-top: 0.3rem;
+      bottom: 1.1rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      flex: 2;
+      .proname {
+        font-weight: 600;
+        font-size: 1.5rem;
+        line-height: 1.8rem;
+        overflow: hidden;
+      }
+      .proattr {
+        color: #999;
+      }
+    }
+    .pronum {
+      font-size: 1.4rem;
+      color: #999;
+      padding: 1rem 0 1rem 1rem;
+    }
+  }
+  .ordersumscontent {
+    padding-top: 1rem;
+    color: #999;
+    .ordersumtip {
+      float: right;
+      color: black;
+    }
+    .ordersums {
+      display: inline-block;
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+  }
+  .orderagain {
+    text-align: right;
+    margin-top: 1rem;
+    ion-button{
+      --padding-start: 1rem;
+      --padding-end: 1rem;
+    }
+  }
+}
+#orderlistnullcontent{
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  top: 35%;
+  .nullicon{
+    width: 50%;
+    margin: 0 auto;
+  }
+  .nulltitle{
+    color: #999;
+    padding: 1rem 0;
+  }
+  .nullbtn{
+    ion-button{
+      --padding-start: 1rem;
+    --padding-end: 1rem;
+    }
+  }
+}

@@ -1,0 +1,46 @@
+ion-header{
+    --background: #eee;
+    ion-toolbar{
+        --border-color: #eee;
+        --background: #eee;
+    }
+}
+ion-content{
+    --background: #eee;
+}
+.welcomemsg{
+    width: 100%;
+    height: 15rem;
+    #welcomecontent{
+        ion-avatar{
+            margin: 5rem auto 1rem auto;
+            border: .3rem solid white;
+            width: 7rem;
+            height: 7rem;
+        }
+        p{
+            padding-top: 1rem;
+            text-align: center;
+        }
+    }
+}
+.logincontent{
+    ion-list{
+        padding: .5rem;
+        ion-item{
+            --border-color: white;
+            ion-input{
+                font-size: 1.4rem;
+            }
+        }
+    }
+    .loginbtn{
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+.userset{
+    color: #555;
+    font-size: 1.6rem;
+    padding: 0 1.5rem 3rem 1.5rem;
+}

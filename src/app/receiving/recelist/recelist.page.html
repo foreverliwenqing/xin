@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab1" text="Back"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>default address</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!--收货地址为空-->
+  <div id="emptyrece" *ngIf="receIsNull">
+    <img src="assets/img/nodata02.png">
+    <p>You have not harvested the address~</p>
+  </div>
+  <!--收货地址空结束-->
+
+  <!--收货地址列表-->
+  <p id="decehead" *ngIf="!receIsNull">Shipping address</p>
+  <ion-card *ngIf="!receIsNull">
+    <ion-list>
+      <ion-item lines="full" *ngFor="let v of receList;let k = index">
+        <div class="decemi">
+          <div class="userdececontent" (click)="choseNowDece(k);">
+            <div class="gdece">
+              <!--详细地址 (门牌号)-->
+              {{ v.address }}
+            </div>
+            <div class="userdece">
+              <ion-badge color="primary" *ngIf="v.default_address">default address</ion-badge>
+              <!--姓名 + 性别 + 号码-->
+              {{ v.name }} {{ v.phonehide }}
+            </div>
+          </div>
+  
+          <div class="editicon" [routerLink]="['/addrece']" [queryParams]="v">
+            <ion-icon name="create-outline"></ion-icon>
+          </div>
+
+        </div>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+  <!--收货地址列表结束-->
+
+  <!--添加地址按钮-->
+  <div class="gaddress">
+    <ion-button shape="round" expand="block" [routerLink]="['/addrece']">
+      Add address
+    </ion-button>
+  </div>
+  <!--添加地址按钮结束-->
+</ion-content>

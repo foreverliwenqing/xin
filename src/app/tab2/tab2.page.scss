@@ -1,0 +1,98 @@
+ion-content ion-toolbar {
+  --background: translucent;
+}
+.category{
+  height: 100%;
+  width: 100%;
+  padding-top: 1rem;
+  display: flex;
+  background: #eee;
+
+  .cateSimpList{
+    width: 12rem;
+    height: 100%;
+    background: none;
+    overflow-y: auto;
+
+    .cursor{
+      transition: all .2s ease;
+    }
+    ion-list{
+      background: none;
+      padding-top: .5rem;
+      padding-bottom: .5rem;
+      position: relative;
+
+      ion-item{
+        --background: none;
+        --border-width: 0;
+        font-size: 1.4rem;
+        text-align: center;
+        z-index: 20;
+      }
+      .cursor{
+        position: absolute;
+        --background: #fff;
+        top: 7px;
+        border-radius: 1rem;
+        z-index: 10;
+        width: 90%;
+        margin-left: .5rem;
+      }
+    }
+  }
+
+  .cateDetailList{
+    flex: 1;
+    height: 100%;
+    overflow-y: auto;
+
+  }
+}
+
+.catecard{
+  margin: .5rem .5rem .5rem 0;
+
+  ion-list{
+    padding: 1.5rem 1rem 1rem 1rem;
+  }
+  .catehr{
+    background: #ccc;
+  }
+  ion-img{
+    width: 6rem;
+    height: 6rem;
+    border-radius: .5rem;
+    overflow: hidden;
+  }
+  ion-item{
+    --padding-start: 0;
+    --padding-bottom: 0;
+    --padding-end: 0;
+    --padding-top: 0;
+    --border-color: #eee;
+  }
+  ion-label{
+    padding-left: 1rem;
+
+    .catetitle{
+      font-size: 1.4rem;
+    }
+    .catedesc{
+      font-size: 1rem;
+      color: #aaa;
+    }
+    .cateattr{
+      font-size: 1rem;
+      color: #aaa;
+    }
+    .cateprice{
+      font-size: 1.4rem;
+    }
+  }
+  
+}
+
+ion-content{
+  background: #eee;
+}
