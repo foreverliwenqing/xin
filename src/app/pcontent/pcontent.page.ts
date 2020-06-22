@@ -142,7 +142,6 @@ export class PcontentPage implements OnInit {
     this.http.ajaxGet(api).then((res: any) => {
       if (res) {
         this.prodata = res.result;
-        console.log(this.prodata);
       } else {
         this.navi.navigateForward('/tabs/tab1');
       }
@@ -362,7 +361,5 @@ export class PcontentPage implements OnInit {
   }
   showImg(index) {
     let imgDom = document.querySelector(".clShowImg");
-
-    console.log(imgDom.getAttribute("src"));
   }
 }

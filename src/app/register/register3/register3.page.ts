@@ -27,8 +27,8 @@ export class Register3Page implements OnInit {
       this.codeTip('两次密码输入不一致');
       return;
     }
-    if(this.readPass.length < 6){
-      this.codeTip('密码长度必须大于等于6位');
+    if(this.readPass.length < 3){
+      this.codeTip('密码长度必须大于等于3位');
       return;
     }
 

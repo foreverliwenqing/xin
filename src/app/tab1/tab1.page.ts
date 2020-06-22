@@ -60,7 +60,6 @@ export class Tab1Page {
         res.result[i]["isLike"] = false;
       }
       this.proList = res.result;
-      console.log(this.proList);
     })
   }
 
