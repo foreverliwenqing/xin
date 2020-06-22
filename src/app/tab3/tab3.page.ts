@@ -155,6 +155,8 @@ export class Tab3Page {
   }
   //重置购物车选中
   reLoadCartCheck() {
+    console.log(this.cartList);
+    console.log(this.cart.getCartCheckNum(this.cartList));
     if (this.cartList.length == this.cart.getCartCheckNum(this.cartList)) {
       this.isCheckAll = true;
     } else {

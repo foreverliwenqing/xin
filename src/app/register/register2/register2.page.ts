@@ -53,7 +53,7 @@ export class Register2Page implements OnInit {
       }
     })
   }
-
+  
   //验证验证码是否正确
   validateCode(){
     var api = 'api/validateCode';

@@ -20,18 +20,16 @@ export class Register1Page implements OnInit {
 
   //获取验证码
   getCode() {
-    if (/^\d{8}$/.test(this.phones)){
+    if (/^[1-9][0-9]*$/.test(this.phones)){
+      console.log(this.phones);
       var api = 'api/sendCode';
-
-      console.log(this.phonehead + this.phones);
       this.http.ajaxPost(api, {"tel":this.phonehead + this.phones}).then((res:any) => {
         if (res.success){
-          console.log(res);
           this.storage.set('valCode',{'tel': this.phonehead + this.phones, 'code': res.code});
-          this.navi.navigateForward('/register2');
-          // this.codeTip(res.message);
           this.codeTip('测试code:' + res.code);
+          this.navi.navigateForward('/register2');
         }else{
+
           this.codeTip('SMS verification failed ' + res.message);
         }
       })

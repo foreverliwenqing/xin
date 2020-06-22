@@ -176,8 +176,6 @@ export class AddrecePage implements OnInit {
       this.codeTip('The phone is error');
       return false;
     }
-    console.log(123);
-
     if (this.receInfo.address == '') {
       this.codeTip('Address');
       return false;
@@ -199,6 +197,7 @@ export class AddrecePage implements OnInit {
     if (this.isLogin) {
       this.addAddressIsLogin();
     } else {
+      console.log(1)
       this.addAddressNoLogin();
     }
   }
@@ -214,7 +213,7 @@ export class AddrecePage implements OnInit {
     this.receInfo['uptime'] = new Date().getTime();
     this.receInfo['_id'] = this.generateReceId() + new Date().getTime().toString();
 
-    if (deceList.length > 0) {
+    if (deceList && deceList.length > 0) {
       deceList.push(this.receInfo);
     } else {
       deceList = [];
@@ -225,6 +224,7 @@ export class AddrecePage implements OnInit {
     this.codeTip('Add address successfully');
     // 添加地址完成后返回地址列表
     this.navi.back();
+    console.log(1);
   }
 
   //已登录保存地址

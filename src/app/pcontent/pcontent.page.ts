@@ -142,6 +142,7 @@ export class PcontentPage implements OnInit {
     this.http.ajaxGet(api).then((res: any) => {
       if (res) {
         this.prodata = res.result;
+        console.log(this.prodata);
       } else {
         this.navi.navigateForward('/tabs/tab1');
       }
@@ -150,18 +151,22 @@ export class PcontentPage implements OnInit {
 
   //规格选择
   choseAttr(e) {
+    let imgDom = document.querySelector(".clShowImg");
+
     if (e.srcElement.nodeName == 'SPAN') { //获取点击事件
       var el = e.srcElement,//获取当前点击的span节点
         parent = el.parentNode,//获取当前节点的父节点,
         parents = parent.parentNode,
         attrChildren = parents.children;//通过父节点找到子节点
 
-      //清除所有节点的actives
       for (var i = 0; i < attrChildren.length; i++) {
         attrChildren[i].className = '';
       }
-
       parent.className = 'actives';
+
+      if(parent.firstChild.nodeName == "IMG") {
+        imgDom["src"] = parent.firstChild.getAttribute("src");
+      }
     }
   }
 
@@ -185,7 +190,7 @@ export class PcontentPage implements OnInit {
   }
   //加入购物车
   doAddCart() {
-    var pro_title = this.prodata['title'],
+    var pro_title = this.prodata['title'],  
       pro_id = this.prodata['_id'],
       pro_pic = this.prodata['pic'],
       pro_price = this.prodata['price'],
@@ -354,5 +359,10 @@ export class PcontentPage implements OnInit {
         this.elBackTop.style.display = 'none';
       }
     });
+  }
+  showImg(index) {
+    let imgDom = document.querySelector(".clShowImg");
+
+    console.log(imgDom.getAttribute("src"));
   }
 }

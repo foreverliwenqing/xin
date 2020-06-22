@@ -19,6 +19,8 @@ export class Tab1Page {
   public slideList: any[] = [];
   public hotList: any[] = [];
   public hotWidth: any;
+  // public likeIs = false;
+  public params: any[] = []; //点击收藏参数收集
   public slidesOpt = {
     speed: 400,
     autoplay: {
@@ -35,6 +37,7 @@ export class Tab1Page {
     this.getSlideList();//获取轮播图
     this.getHotList();//获取热门商品
     this.getProList();//获取商品列表
+    // fbq('track', 'PageView');
   }
 
   getSlideList() {
@@ -53,7 +56,11 @@ export class Tab1Page {
   getProList() {
     this.ajaxg.ajaxGet('api/plist?is_best=1').then(
       (res: any) => {
+      for(let i = 0; i< res.result.length; i++) {
+        res.result[i]["isLike"] = false;
+      }
       this.proList = res.result;
+      console.log(this.proList);
     })
   }
 
@@ -78,5 +85,17 @@ export class Tab1Page {
   //跳转
   goSearch() {
     this.navi.navigateForward('/search');
+  }
+  // 收藏
+  Collection(e, id, index) {
+    let that = this;
+    e.stopPropagation();
+    let like = false;
+    let dom = document.querySelectorAll(".likeIcon") as NodeListOf<HTMLElement>;
+    for(let i = 0; i < dom.length; i++) {
+      if(i == index) {
+        that.proList[index].isLike = !that.proList[index].isLike;
+      }
+    }
   }
 }

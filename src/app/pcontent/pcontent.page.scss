@@ -193,6 +193,7 @@ ion-content {
             .price {
               color: red;
               font-size: 1.4rem;
+              line-height: 4.6rem;
             }
             .big {
               font-size: 2rem;
@@ -213,17 +214,34 @@ ion-content {
             float: left;
             margin: 1rem 1rem 1rem 0;
             font-size: 1.1rem;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgb(230, 230, 230);
+            img {
+              width: 2rem;
+            }
             span {
-              padding: 0.5rem 1.5rem;
-              border-radius: 5rem;
-              background: rgb(230, 230, 230);
+              padding: .5rem;
             }
           }
           .actives {
+            border: 1px solid red;
+            color: red;
+            background: rgb(255, 240, 240);
+            float: left;
+            margin: 1rem 1rem 1rem 0;
+            font-size: 1.1rem;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgb(230, 230, 230);
             span {
-              border: 1px solid red;
-              color: red;
-              background: rgb(255, 240, 240);
+              padding: .5rem;
             }
           }
         }

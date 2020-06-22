@@ -31,11 +31,6 @@
 </ion-header>
 
 <ion-content padding (ionScroll)="ionScroll()" scroll-events='true' id='Content'>
-  <!-- <ion-fab id="addData_FabBtn" vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button hidden id='BackTop' (click)="goTop()" size='small'>
-      <ion-icon name="arrow-round-up"></ion-icon>
-    </ion-fab-button>
-  </ion-fab> -->
   <div class="slidecontent" id="product">
     <ion-slides pager="ios" [options]="slideOpts" #proslide (ionSlideDidChange)="slideMove()">
       <ion-slide>
@@ -126,8 +121,9 @@
         <div class="attrcontent">
           <div style="height: 100%">
             <div class="proinfo">
-              <img src="assets/img/7.jpg">
+              <img src="assets/img/7.jpg" class="clShowImg" (click)="showImg()" />
               <div class="pricesku">
+                <p>{{prodata.title}}</p>
                 <p class="price">￥
                   <span class="big">15</span>.80</p>
                 <p class="sku">SKU: TEST20200305</p>
@@ -142,7 +138,8 @@
                 </div>
                 <div id="allattr">
                   <ul>
-                    <li *ngFor="let vv of v.list;let kk = index" [ngClass]="{'actives':kk == 0}" (click)="choseAttr($event)">
+                    <li *ngFor="let vv of v.list;let kk = index" [ngClass]="{ actives: kk == 0 }" (click)="choseAttr($event)">
+                      <img src="assets/img/{{kk + 1}}.jpg">
                       <span>{{ vv }}</span>
                     </li>
                   </ul>
@@ -185,7 +182,7 @@
           </div>
 
           <ion-button class="closeModal" (click)="closeModal()" fill="clear">
-            <ion-icon slot="icon-only" name="close-circle-outline"></ion-icon>
+            <ion-icon name="close-outline"></ion-icon>
           </ion-button>
         </div>
       </div>

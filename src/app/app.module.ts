@@ -29,13 +29,13 @@ import { CartService } from './services/cart.service';
     // Tab3Page
   ],
   imports: [
-    BrowserModule, 
-    BrowserAnimationsModule, 
+    BrowserModule,
+    BrowserAnimationsModule,
     // Tab3PageModule,
     IonicModule.forRoot({
-    mode: 'ios',//统一ios样式
-    backButtonText: '返回'//统一默认返回按钮文字
-  }), AppRoutingModule, HttpClientModule, ],
+      mode: 'ios',//统一ios样式
+      backButtonText: '返回'//统一默认返回按钮文字
+    }), AppRoutingModule, HttpClientModule,],
   providers: [
     StatusBar,
     SplashScreen,
@@ -50,3 +50,4 @@ import { CartService } from './services/cart.service';
 })
 export class AppModule {
 }
+  
