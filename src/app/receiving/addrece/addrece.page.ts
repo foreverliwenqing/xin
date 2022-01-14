@@ -197,7 +197,6 @@ export class AddrecePage implements OnInit {
     if (this.isLogin) {
       this.addAddressIsLogin();
     } else {
-      console.log(1)
       this.addAddressNoLogin();
     }
   }
@@ -224,7 +223,6 @@ export class AddrecePage implements OnInit {
     this.codeTip('Add address successfully');
     // 添加地址完成后返回地址列表
     this.navi.back();
-    console.log(1);
   }
 
   //已登录保存地址
@@ -394,8 +392,6 @@ export class AddrecePage implements OnInit {
     deceList.splice(fkey, 1, this.receInfo);
 
     this.receInfo['uptime'] = new Date().getTime();
-    // this.receInfo['isdefault'] = this.receInfo['default_address'];
-    // deceList.push(this.receInfo);
 
     this.storage.set('decelist', deceList);
     this.codeTip('Edit successfully');

@@ -123,6 +123,8 @@ export class PcontentPage implements OnInit {
     })
   }
   ionViewDidEnter() {
+
+    console.log(11)
     this.ionScroll();
     this.actived.queryParams.subscribe((res) => {
       if (res.id) {
@@ -339,6 +341,8 @@ export class PcontentPage implements OnInit {
   // 实时监听屏幕滚动距离
   ionScroll() {
     const scrollElement: Promise<HTMLElement> = this.elContent.getScrollElement();
+
+    console.log(scrollElement);
     let proDom = this.elementRef.nativeElement.querySelector('#product').offsetTop;
     let comDom = this.elementRef.nativeElement.querySelector('#comment').offsetTop; 
     let detDom = this.elementRef.nativeElement.querySelector('#detail').offsetTop; 
